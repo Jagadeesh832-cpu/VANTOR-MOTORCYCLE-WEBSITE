@@ -1,0 +1,54 @@
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+[Dd]esktop.ini
+
+# Environment and Credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Node / Package Manager Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build, Cache and Temporary Files
+.cache/
+.temp/
+.tmp/
+*.tmp
+*.log
+*.bak
+*.swp
+*~
+
+# IDE and Editor Configurations
+.vscode/
+!.vscode/settings.json
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Archive packages (raw extraction archives)
+*.zip
+*.tar.gz
+*.rar
+
+# Root video duplicates (clean copies tracked in assets/videos/)
+/*.mp4
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/

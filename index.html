@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VANTOR — A luxury cinematic scrollytelling showcase for the Royal Enfield Continental GT 650 Black Phantom Edition. Own the road. Rule the night.">
+  <title>VANTOR — Royal Enfield Continental GT 650 | Luxury Cinematic Showcase</title>
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,100..125,400..900;1,100..125,400..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Film Grain Canvas Overlay -->
+  <canvas id="film-grain-canvas" aria-hidden="true"></canvas>
+
+  <!-- Custom Headlight Cursor -->
+  <div class="custom-cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+  <div class="custom-cursor-ring" id="cursor-ring" aria-hidden="true">
+    <span class="custom-cursor-label" id="cursor-label"></span>
+  </div>
+
+  <!-- Preloader Screen -->
+  <div id="preloader" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Loading Cinematic Experience">
+    <div class="preloader-content">
+      <div class="preloader-wordmark">VANTOR</div>
+      <div class="preloader-tagline">OWN THE ROAD. RULE THE NIGHT.</div>
+      <div class="preloader-bar-wrap">
+        <div class="preloader-bar-fill" id="preloader-bar"></div>
+      </div>
+      <div class="preloader-meta">
+        <span id="preloader-status">INITIALIZING TELEMETRY</span>
+        <span class="preloader-counter" id="preloader-num">000%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fixed Navigation -->
+  <header id="site-nav" role="banner">
+    <div class="nav-brand">
+      <a href="#hero" class="nav-wordmark" data-cursor="VANTOR" aria-label="VANTOR Home">VANTOR</a>
+      <span class="nav-model-pill">GT 650</span>
+    </div>
+
+    <nav aria-label="Main Navigation">
+      <ul class="nav-links">
+        <li><a href="#hero" class="nav-link" data-cursor="VIEW">HOME</a></li>
+        <li><a href="#collection" class="nav-link" data-cursor="EXPLORE">COLLECTION</a></li>
+        <li><a href="#the-ride" class="nav-link" data-cursor="RIDE">THE RIDE</a></li>
+        <li><a href="#machine" class="nav-link" data-cursor="TECH">ENGINEERING</a></li>
+        <li><a href="#experience" class="nav-link" data-cursor="VIEW">EXPERIENCE</a></li>
+      </ul>
+    </nav>
+
+    <a href="#collection" class="nav-cta-btn" data-cursor="EXPLORE">DISCOVER GT 650</a>
+
+    <!-- Mobile Hamburger Toggle -->
+    <button class="mobile-nav-toggle" id="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-drawer" id="mobile-drawer" aria-hidden="true">
+    <ul class="mobile-drawer-links">
+      <li><a href="#hero" class="mobile-drawer-link">01 — HOME</a></li>
+      <li><a href="#statement" class="mobile-drawer-link">02 — THE SPIRIT</a></li>
+      <li><a href="#the-ride" class="mobile-drawer-link">03 — THE RIDE</a></li>
+      <li><a href="#collection" class="mobile-drawer-link">04 — COLLECTION</a></li>
+      <li><a href="#machine" class="mobile-drawer-link">05 — ENGINEERING</a></li>
+      <li><a href="#experience" class="mobile-drawer-link">06 — EXPERIENCE</a></li>
+    </ul>
+    <div style="font-family: var(--font-mono); font-size: 11px; color: var(--gold); letter-spacing: 0.2em;">
+      OWN THE ROAD. RULE THE NIGHT.
+    </div>
+  </div>
+
+  <main>
+
+    <!-- SECTION 01: THE HERO PINNED SCROLLYTELLING (~600vh) -->
+    <section id="hero" class="pinned-scroll-wrapper" aria-label="Cinematic Hero Scrollytelling">
+      <div class="sticky-stage" id="hero-stage">
+        <!-- Interactive Canvas for Image Sequence -->
+        <canvas id="hero-canvas" class="scrolly-canvas"></canvas>
+
+        <!-- Left HUD Telemetry Overlay -->
+        <div class="hero-hud-left" aria-hidden="true">
+          <div class="hud-row">
+            <span class="hud-tag">HUD</span>
+            <span class="hud-val" id="hero-hud-chapter">CHAPTER 01/04</span>
+          </div>
+          <div class="hud-row">
+            <span>SPEED:</span>
+            <span class="hud-val" id="hero-hud-speed">000 KM/H</span>
+          </div>
+          <div class="hud-row">
+            <span>DIST:</span>
+            <span class="hud-val" id="hero-hud-dist">0.0 KM</span>
+          </div>
+        </div>
+
+        <!-- Dynamic Chapter Text Cards -->
+        <div class="hero-chapters-container">
+          <!-- Chapter 1 (0-16%) -->
+          <div class="hero-chapter-card chapter-active" id="hero-chap-0">
+            <span class="chapter-label">01 / PROLOGUE</span>
+            <h1 class="chapter-title">VANTOR</h1>
+            <p class="chapter-subtitle">THE NIGHT BELONGS TO THOSE WHO RIDE.</p>
+            <div class="chapter-prompt">
+              <span class="scroll-indicator-line"></span>
+              <span>SCROLL TO EXPLORE</span>
+              <span class="scroll-indicator-line"></span>
+            </div>
+          </div>
+
+          <!-- Chapter 2 (22-42%) -->
+          <div class="hero-chapter-card" id="hero-chap-1">
+            <span class="chapter-label">02 / THE AWAKENING</span>
+            <h2 class="chapter-title">NOT BUILT TO FOLLOW.</h2>
+            <p class="chapter-subtitle">Silence has a new sound. Midnight asphalt and the rhythmic pulse of an unrestricted parallel twin.</p>
+          </div>
+
+          <!-- Chapter 3 (50-70%) -->
+          <div class="hero-chapter-card" id="hero-chap-2">
+            <span class="chapter-label">03 / THE ASCENT</span>
+            <h2 class="chapter-title">BUILT TO LEAD.</h2>
+            <p class="chapter-subtitle">Born to own the darkness. Precision lines and gold coachlines slicing through the skyscraper canyon.</p>
+          </div>
+
+          <!-- Chapter 4 (80-98%) -->
+          <div class="hero-chapter-card" id="hero-chap-3">
+            <span class="chapter-label">04 / THE ICON</span>
+            <h2 class="chapter-title">CONTINENTAL GT 650</h2>
+            <p class="chapter-subtitle">THE BLACK PHANTOM EDITION. Hand-crafted luxury café racer engineered for uncompromising road presence.</p>
+            <a href="#collection" class="chapter-cta-btn" data-cursor="EXPLORE">DISCOVER THE MACHINE</a>
+          </div>
+        </div>
+
+        <!-- Thin 1px Bottom Progress Indicator -->
+        <div class="pinned-bottom-progress" aria-hidden="true">
+          <div class="pinned-bottom-progress-bar" id="hero-progress-bar"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 02: THE STATEMENT (Word-by-word reveal ~100vh) -->
+    <section id="statement" class="statement-section" aria-label="Brand Philosophy Statement">
+      <div class="statement-content">
+        <span class="statement-label">01 — THE VANTOR SPIRIT</span>
+        <h2 class="statement-headline" id="statement-text">
+          <!-- Populated by JavaScript into animated words -->
+          POWER IS NOT ALWAYS LOUD. SOMETIMES IT IS FELT.
+        </h2>
+        <div class="statement-gold-divider"></div>
+        <p class="statement-subtext">
+          Some machines are built to follow. Others are born to lead. The Continental GT 650 is an uncompromising café racer distilled to its purest mechanical essence.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 03: THE RIDERS (PINNED GROUP RIDING ~500vh) -->
+    <section id="the-ride" class="group-scroll-wrapper" aria-label="Group Riding Formation Scrollytelling">
+      <div class="sticky-stage" id="group-stage">
+        <!-- Interactive Canvas for Group Sequence -->
+        <canvas id="group-canvas" class="scrolly-canvas"></canvas>
+
+        <!-- Left HUD Telemetry Overlay -->
+        <div class="group-hud-left" aria-hidden="true">
+          <div class="hud-row">
+            <span class="hud-tag">FORMATION</span>
+            <span class="hud-val">SQUADRON DELTA</span>
+          </div>
+          <div class="hud-row">
+            <span>TACTICAL:</span>
+            <span class="hud-val">8 RIDERS IN FORMATION</span>
+          </div>
+          <div class="hud-row">
+            <span>ENGINE:</span>
+            <span class="hud-val" id="group-hud-cadence">7,250 RPM</span>
+          </div>
+        </div>
+
+        <!-- Dynamic Chapter Text Cards -->
+        <div class="hero-chapters-container">
+          <!-- Chapter 1 (0-30%) -->
+          <div class="hero-chapter-card chapter-active" id="group-chap-0">
+            <span class="chapter-label">FORMATION LEAD</span>
+            <h2 class="chapter-title">ONE ROAD.</h2>
+            <p class="chapter-subtitle">The lead GT 650 emerges from the dark city, setting the pace through illuminated skyscraper avenues.</p>
+          </div>
+
+          <!-- Chapter 2 (35-65%) -->
+          <div class="hero-chapter-card" id="group-chap-1">
+            <span class="chapter-label">SYNCHRONICITY</span>
+            <h2 class="chapter-title">ONE SPIRIT.</h2>
+            <p class="chapter-subtitle">Tuned parallel twins traveling as one. Natural rider ergonomics, headlights carving through the rain.</p>
+          </div>
+
+          <!-- Chapter 3 (70-98%) -->
+          <div class="hero-chapter-card" id="group-chap-2">
+            <span class="chapter-label">ELEVATED HORIZON</span>
+            <h2 class="chapter-title">NO LIMITS.</h2>
+            <p class="chapter-subtitle">Together, beyond the ordinary. Crossing the suspension bridge into the limitless night.</p>
+          </div>
+        </div>
+
+        <!-- Thin 1px Bottom Progress Indicator -->
+        <div class="pinned-bottom-progress" aria-hidden="true">
+          <div class="pinned-bottom-progress-bar" id="group-progress-bar"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 04: MOTORCYCLE COLLECTION (Horizontal Accordion) -->
+    <section id="collection" class="collection-section" aria-label="Motorcycle Collection Showcase">
+      <div class="section-header">
+        <span class="section-label">02 — THE COLLECTION</span>
+        <h2 class="section-title">ENGINEERED TO BE REMEMBERED.</h2>
+        <p class="section-subtitle">Five distinct machines. One shared spirit of authentic motorcycling.</p>
+      </div>
+
+      <!-- Accordion Container (Populated dynamically from config.js) -->
+      <div class="accordion-container" id="bike-accordion" role="tablist" aria-label="Motorcycle Models Accordion">
+        <!-- Slides rendered dynamically via main.js -->
+      </div>
+    </section>
+
+    <!-- SECTION 05: THE MACHINE / ENGINEERING -->
+    <section id="machine" class="engineering-section" aria-label="Engineering and Technical Details">
+      <div class="section-header">
+        <span class="section-label">03 — ENGINEERING</span>
+        <h2 class="section-title">EVERY DETAIL HAS A PURPOSE.</h2>
+        <p class="section-subtitle">Precision engineering. Timeless design. Pure riding emotion.</p>
+      </div>
+
+      <div class="engineering-grid" id="engineering-grid">
+        <!-- Rendered dynamically from config.js -->
+      </div>
+    </section>
+
+    <!-- SECTION 06: THE EXPERIENCE -->
+    <section id="experience" class="experience-section" aria-label="The VANTOR Experience">
+      <!-- Background Texture Image -->
+      <img src="assets/textures/experience-bg.webp" alt="Motorcycle through midnight mist" class="experience-bg-img" loading="lazy">
+
+      <div class="experience-content">
+        <div class="section-header">
+          <span class="section-label">04 — THE EXPERIENCE</span>
+          <h2 class="section-title">IT'S MORE THAN A RIDE.</h2>
+          <p class="section-subtitle">A visceral connection between rider, machine, and midnight city asphalt.</p>
+        </div>
+
+        <div class="experience-pillars-grid" id="experience-grid">
+          <!-- Rendered dynamically from config.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 07: FINAL CINEMATIC SCENE & CTA -->
+    <section id="final-cta" class="final-scene-section" aria-label="Final Showcase Call To Action">
+      <!-- Background Bridge Image -->
+      <img src="assets/textures/final-bridge.webp" alt="Continental GT 650 on bridge" class="final-scene-bg" loading="lazy">
+
+      <div class="final-scene-content">
+        <span class="final-label">THE ROAD IS YOURS</span>
+        <h2 class="final-headline">OWN THE NIGHT.</h2>
+        <div class="final-tagline">VANTOR — OWN THE ROAD. RULE THE NIGHT.</div>
+        <p class="final-subtext">The road is waiting. Elevate every journey with the definitive black-and-gold café racer.</p>
+        <a href="#collection" class="final-cta-btn" data-cursor="EXPLORE">DISCOVER THE CONTINENTAL GT 650</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SECTION 08: FOOTER -->
+  <footer id="footer" class="site-footer" role="contentinfo">
+    <div class="footer-top">
+      <div class="footer-brand-col">
+        <div class="footer-wordmark">VANTOR</div>
+        <div class="footer-tagline">OWN THE ROAD. RULE THE NIGHT.</div>
+        <p class="footer-statement">
+          A luxury cinematic tribute to modern British café racer heritage and pure twin-cylinder craftsmanship.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-title">EXPLORE</div>
+        <ul class="footer-links-list">
+          <li><a href="#collection" class="footer-link">Continental GT 650</a></li>
+          <li><a href="#collection" class="footer-link">Interceptor 650</a></li>
+          <li><a href="#collection" class="footer-link">Super Meteor 650</a></li>
+          <li><a href="#collection" class="footer-link">Shotgun 650</a></li>
+          <li><a href="#collection" class="footer-link">Himalayan 450</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-title">EXPERIENCE</div>
+        <ul class="footer-links-list">
+          <li><a href="#statement" class="footer-link">The VANTOR Spirit</a></li>
+          <li><a href="#the-ride" class="footer-link">The Ride</a></li>
+          <li><a href="#machine" class="footer-link">Engineering</a></li>
+          <li><a href="#experience" class="footer-link">Atmosphere</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-title">CONNECT</div>
+        <ul class="footer-links-list">
+          <li><a href="https://www.royalenfield.com" target="_blank" rel="noopener noreferrer" class="footer-link">Official Royal Enfield</a></li>
+          <li><a href="#hero" class="footer-link">Book a Test Ride</a></li>
+          <li><a href="#hero" class="footer-link">Locate a Studio</a></li>
+          <li><a href="#hero" class="footer-link">Media & Press</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-disclaimer">
+        Disclaimer: VANTOR is an independent fictional luxury showcase concept created for digital storytelling and automotive web design presentation. All motorcycle models, emblems, and technical specifications are based on official Royal Enfield vehicles.
+      </p>
+      <div class="footer-copyright">
+        © 2026 VANTOR. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="config.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
+
